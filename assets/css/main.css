@@ -278,9 +278,12 @@ input, select, textarea {
 			#topnav li:last-child {
 				display: block;
 				float: right;
+				position: absolute;
+				right: 0;
+				top: 0;
 			}
 
-			#topnav.responsive li{
+			#topnav.responsive li {
 				position: relative;
 			}
 			#topnav.responsive li:last-child {
@@ -294,9 +297,13 @@ input, select, textarea {
 				text-align: center;
 				background-color: #282828;
 			}
-			#topnav.responsive a:hover{
+			#topnav.responsive a:hover {
 				color: #fff !important;
 				background: #383838;
+			}
+			#topnav .logo {
+				display: block !important;
+				text-align: center;
 			}
 
 			.container {
