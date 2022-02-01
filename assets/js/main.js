@@ -41,7 +41,7 @@ $(document).ready(function(){
 
 	document.querySelector('.hamburger').addEventListener('click', hamburger);
 
-	//Articles
+	/*----- Articles -----*/
 
 	let articleHeaders = ['Freestyle Stitch Around Holes', 'Make Embroidered Wool Moths to Fix Moth Holes', 'Add Color Patches to Cover and Fix Holes', 'Create Bold Embroidered Flowers to Patch Areas', 'Cover Stains With Beaded Embroidery', 'Stitch Jeans With Sashiko and Boro Repair', 'Rescue a Favorite Sweater With Modern Spots of Satin Stitching', 'Mend a Pocket With Embroidery That Strengthens and Embellishes', 'Patch With Colorful Fabric and Creative Stitching'];
 	let articleText = [
@@ -279,7 +279,7 @@ $(document).ready(function(){
 		});
 		document.getElementById('products').innerHTML = product;
 
-		// SIGN UP/LOG IN FORM
+	/*----- SIGN UP/LOG IN FORM ------*/
 
 	$('.form').find('input, textarea').on('keyup blur focus', function (e) {
   
@@ -308,21 +308,139 @@ $(document).ready(function(){
 			}
     }
 
+	
+	const nameRegEx = /^[A-Z][a-z]{2,11}$/;
+	const surnameRegEx = /^[A-Z][a-z]{2,15}(\s[A-Z][a-z]{2,15})*/;
+	const emailRegEx = /^[\w]+[\.\w\d]*\@[\w]+([\.][\w]+)+$/;
+	const passwordRegEx = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$/;
+	const btnSU = document.getElementById('btnSU');
+	const btnLog = document.getElementById('btnLog');
+
+	/* Sign Up forma */
+
+	btnSU.addEventListener('click', function(){
+		let errors = [];
+		
+		let name = document.getElementById('name');
+		let surname = document.getElementById('surname');
+		let emailSU = document.getElementById('emailSU');
+		let passSU = document.getElementById('passSU');
+		let passConfirm = document.getElementById('passConf');
+
+		let nameErr = document.querySelector('.name-err');
+		let surnameErr = document.querySelector('.surname-err');
+		let emailSUErr = document.querySelector('.emailSU-err');
+		let passSUErr = document.querySelector('.passSU-err');
+		let passConfirmErr = document.querySelector('.passConf-err');
+
+		console.log("varijabla: " + nameErr);
+
+		if(!nameRegEx.test(name.value)){
+			$(name).addClass('err');
+			nameErr.innerHTML = "First letter must be capitalized";
+			console.log('regex fail');
+			errors.push(name.value);
+		} else {
+			$(name).addClass('valid');
+			nameErr.innerHTML = "";
+		}
+
+		if(!surnameRegEx.test(surname.value)){
+			$(surname).addClass('err');
+			surnameErr.innerHTML = "First letter must be capitalized";
+			console.log('regex fail');
+			errors.push(surname.value);
+		} else {
+			$(surname).addClass('valid');
+			surnameErr.innerHTML = "";
+		}
+
+		if(!emailRegEx.test(emailSU.value)){
+			$(emailSU).addClass('err');
+			emailSUErr.innerHTML = "Email should be in form of example@mail.com";
+			console.log('regex fail');
+			errors.push(emailSU.value);
+		} else {
+			$(emailSU).addClass('valid');
+			emailSUErr.innerHTML = "";
+		}
+
+		if(!passwordRegEx.test(passSU.value)){
+			$(passSU).addClass('err');
+			passSUErr.innerHTML = "Password must be at least 8 characters long and contain a number, uppercase and lowercase letter";
+			console.log('regex fail');
+			errors.push(passSU.value);
+		} else {
+			$(passSU).addClass('valid');
+			passSUErr.innerHTML = "";
+		}
+
+		if(passSU.value !== passConfirm.value && !!passwordRegEx.test(passConfirm.value)){
+			$(passConfirm).addClass('err');
+			passConfirmErr.innerHTML = "First letter must be capitalized";
+			console.log('regex fail');
+			errors.push(passConfirm.value);
+		} else {
+			$(passConfirm).addClass('valid');
+			passConfirmErr.innerHTML = "";
+		}
+		
+		if(greske.length === 0) {
+			return true; } 
+		return false;
+	});
+
+	/* Log In forma */
+
+	btnLog.addEventListener('click', function(){
+		let errors = [];
+
+		let emailLog = document.getElementById('emailLog');
+		let passLog = document.getElementById('passLog');
+
+		let emailLogErr = document.querySelector('.emailLog-err');
+		let passLogErr = document.querySelector('.passLog-err');
+
+		if(!emailRegEx.test(emailLog.value)){
+			$(emailLog).addClass('err');
+			emailLogErr.innerHTML = "Email should be in form of example@mail.com";
+			console.log('regex fail');
+			errors.push(emailLog.value);
+		} else {
+			$(emailLog).addClass('valid');
+			emailLogErr.innerHTML = "";
+		}
+
+		if(!passwordRegEx.test(passLog.value)){
+			$(passLog).addClass('err');
+			passLogErr.innerHTML = "Password must be at least 8 characters long and contain a number, uppercase and lowercase letter";
+			console.log('regex fail');
+			errors.push(passLog.value);
+		} else {
+			$(passLog).addClass('valid');
+			passLogErr.innerHTML = "";
+		}
+		 
+		if(greske.length === 0) {
+			return true; } 
+		return false;
+	});
+
 });
 
-$('.tab a').on('click', function (e) {
-  
-  e.preventDefault();
-  
-  $(this).parent().addClass('active');
-  $(this).parent().siblings().removeClass('active');
-  
-  target = $(this).attr('href');
+	$('.tab a').on('click', function (e) {
+	
+	e.preventDefault();
+	
+	$(this).parent().addClass('active');
+	$(this).parent().siblings().removeClass('active');
+	
+	target = $(this).attr('href');
 
-  $('.tab-content > div').not(target).hide();
-  
-  $(target).fadeIn(600);
-  
-});
+	$('.tab-content > div').not(target).hide();
+	
+	$(target).fadeIn(600);
+	
+	});
 
 });

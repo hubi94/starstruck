@@ -6,16 +6,87 @@
   src: url(magic_club.ttf);
 }
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr,
-acronym, address, big, cite, code, del, dfn, em,
-img, ins, kbd, q, s, samp, small, strike, strong,
-sub, sup, tt, var, b, u, i, center, dl, dt, dd,
-ol, ul, li, fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th,
-td, article, aside, canvas, details, embed, figure,
-figcaption, footer, header, hgroup, menu, nav, output,
-ruby, section, summary, time, mark, audio,video {
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
   margin: 0;
   padding: 0;
   border: 0;
@@ -24,9 +95,17 @@ ruby, section, summary, time, mark, audio,video {
   vertical-align: baseline;
 }
 
-article, aside, details,figcaption,
-figure, footer, header, hgroup,
-menu, nav, section {
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
   display: block;
 }
 
@@ -1488,10 +1567,11 @@ footer > p {
 /* Form */
 
 form label {
-  color: #3e3e3e;
+  color: #656565;
   font-weight: 700;
   display: block;
   margin: 0 0 0.5em 0;
+  text-align: left;
 }
 
 form input[type="text"],
@@ -1553,6 +1633,26 @@ form :-ms-input-placeholder {
 
 form ::-moz-focus-inner {
   border: 0;
+}
+
+/* Input error class */
+
+.field-wrap {
+  text-align: right;
+}
+
+.field-wrap span {
+  color: #860e0e;
+}
+
+.err {
+  box-shadow: inset 0px 2px 5px 0px rgb(0 0 0 / 5%),
+    0px 1px 0px 0px rgb(255 255 255 / 3%), inset 0px 0px 2px 1px #860e0e !important;
+}
+
+.valid {
+  box-shadow: inset 0px 2px 5px 0px rgb(0 0 0 / 5%),
+    0px 1px 0px 0px rgb(255 255 255 / 3%), inset 0px 0px 2px 1px #2c7e0c !important;
 }
 
 /* Tables */
@@ -2023,6 +2123,7 @@ ul.actions li:first-child {
 }
 
 .wrapper.style4 form input[type="text"],
+.wrapper.style4 form input[type="email"],
 .wrapper.style4 form input[type="password"],
 .wrapper.style4 form select,
 .wrapper.style4 form textarea {
@@ -2035,6 +2136,9 @@ ul.actions li:first-child {
 .wrapper.style4 form select:focus,
 .wrapper.style4 form textarea:focus {
   background: #252525;
+  outline: none;
+  box-shadow: inset 0px 2px 5px 0px rgb(0 0 0 / 5%),
+    0px 1px 0px 0px rgb(255 255 255 / 3%), inset 0px 0px 2px 1px #bebebe;
 }
 
 /* Nav */
@@ -2182,6 +2286,74 @@ body > article {
 
 #copyright a:hover {
   color: #777;
+}
+
+/* Tabs */
+
+.tab-group {
+  padding: 0;
+  margin-top: 4em;
+  margin-bottom: 2em;
+}
+
+.tab {
+  position: relative;
+  display: inline-block;
+  width: 49.737%;
+  min-width: 10em;
+  padding: 0;
+}
+
+.tab a {
+  background-image: url("images/bg.png"),
+    -moz-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
+  background-image: url("images/bg.png"),
+    -webkit-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
+  background-image: url("images/bg.png"),
+    -ms-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
+  background-image: url("images/bg.png"),
+    linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
+  -moz-transition: background-color 0.2s ease-in-out;
+  -webkit-transition: background-color 0.2s ease-in-out;
+  -ms-transition: background-color 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out;
+  -webkit-appearance: none;
+  position: relative;
+  display: inline-block;
+  color: #2e2e2e !important;
+  text-decoration: none;
+  font-weight: 600;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  border-radius: 8px;
+  text-shadow: -1px -1px 0.5px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  box-shadow: inset 0px 0px 0px 1px #282828,
+    inset 0px 2px 1px 0px rgb(255 255 255 / 10%);
+  background-color: #444;
+  padding: 0.8em 2em 0.8em 2em;
+  font-size: 1.4em;
+  width: 100%;
+}
+
+.tab a:hover {
+  background-color: #a85adb;
+  color: #fff !important;
+}
+
+.tab.active a {
+  background-color: #a85adb;
+  color: #fff !important;
+}
+
+/* Login/SignUp */
+
+.form-btn-wrap {
+  margin-top: 2rem;
+  display: block;
+  width: 100%;
+  text-align: right;
 }
 
 /* Large */
