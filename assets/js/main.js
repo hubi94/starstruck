@@ -71,11 +71,15 @@ $(document).ready(function(){
 
 	articles.innerHTML = article;
 
-	// $('.multiple-items').slick({
-	// 	infinite: true,
-	// 	slidesToShow: 3,
-	// 	slidesToScroll: 3
-	// });
+	/* SLICK */
+
+	$('#carousel').slick({
+		slidesToShow: 3,
+		slidesToScroll: 1,
+		autoplay: true,
+		autoplaySpeed: 3000,
+	});
+	
 	
 
 	//Products
@@ -274,6 +278,9 @@ $(document).ready(function(){
 								</div>
 								<h3>${p.name}</h3>
 								<p>${p.price}&euro;<br/>${p.theme}</p>
+								<button class="btn btn-secondary add-to-cart" title="Quick Shop">
+									<i class="fas fa-cart-arrow-down"></i>
+								</button>
 							</article>
 						</div>`
 		});
@@ -316,7 +323,7 @@ $(document).ready(function(){
 	const btnSU = document.getElementById('btnSU');
 	const btnLog = document.getElementById('btnLog');
 
-	/* Sign Up forma */
+	/* Sign Up form */
 
 	btnSU.addEventListener('click', function(){
 		let errors = [];
@@ -390,7 +397,7 @@ $(document).ready(function(){
 		return false;
 	});
 
-	/* Log In forma */
+	/* Log In form*/
 
 	btnLog.addEventListener('click', function(){
 		let errors = [];

@@ -1739,6 +1739,20 @@ article:last-child {
   width: auto;
 }
 
+/* SLICK customization */
+
+.slick-arrow {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.slick-next {
+  left: auto;
+  right: 20px;
+}
+
 /* Button */
 
 input[type="button"],
@@ -1831,6 +1845,12 @@ button.alt:active,
 .button.alt:active {
   background-color: #3f3f3f;
 }
+
+.add-to-cart{
+    margin: 0 auto;
+    top: -20px !important;
+  }
+
 
 /* List */
 
@@ -2356,6 +2376,8 @@ body > article {
   text-align: right;
 }
 
+
+
 /* Large */
 
 @media screen and (max-width: 1280px) {
@@ -2505,6 +2527,8 @@ body > article {
     letter-spacing: 0;
   }
 
+
+
   /* Social */
 
   ul.social {
@@ -2644,6 +2668,7 @@ body > article {
   font-size: 1.3em;
   text-align: justify;
 }
+
 
 /* Media Queries */
 
