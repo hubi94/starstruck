@@ -1741,7 +1741,7 @@ article:last-child {
 
 /* SLICK customization */
 
-.slick-arrow {
+/*.slick-arrow {
   position: absolute;
   left: 20px;
   top: 50%;
@@ -1751,7 +1751,7 @@ article:last-child {
 .slick-next {
   left: auto;
   right: 20px;
-}
+}*/
 
 /* Button */
 
