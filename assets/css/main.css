@@ -1635,6 +1635,20 @@ form ::-moz-focus-inner {
   border: 0;
 }
 
+#sortList {
+  text-align: right;
+  color: #656565;
+  font-weight: 700;
+  padding: 2em 2em 0 0;
+}
+
+#sort {
+  text-align: center;
+  margin-left: 1em;
+  width: 10%;
+  font-weight: 300;
+}
+
 /* Input error class */
 
 .field-wrap {
@@ -1642,7 +1656,7 @@ form ::-moz-focus-inner {
 }
 
 .field-wrap span {
-  color: #860e0e;
+  color: #656565;
 }
 
 .err {
@@ -1741,17 +1755,38 @@ article:last-child {
 
 /* SLICK customization */
 
-/*.slick-arrow {
+.slick-track {
+  display: grid !important;
+  grid-auto-flow: column;
+}
+
+.slick-slide {
+  margin: 0 0.75em 0 0.75em;
+  height: 100%;
+}
+
+.slick-arrow {
   position: absolute;
-  left: 20px;
+  left: -4em;
   top: 50%;
   transform: translateY(-50%);
+  padding: 0;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.slick-arrow:hover {
+  opacity: 70%;
+}
+
+.slick-arrow i {
+  font-size: 3em;
 }
 
 .slick-next {
   left: auto;
-  right: 20px;
-}*/
+  right: -4em;
+}
 
 /* Button */
 
@@ -1787,6 +1822,7 @@ button,
   box-shadow: inset 0px 0px 0px 1px rgba(0, 0, 0, 0.5),
     inset 0px 2px 1px 0px rgba(255, 255, 255, 0.75);
   background-color: #9653c2;
+  opacity: 0.8;
   padding: 1em 2.35em 1em 2.35em;
   font-size: 1.1em;
   max-width: 24em;
@@ -1797,7 +1833,8 @@ input[type="submit"]:hover,
 input[type="reset"]:hover,
 button:hover,
 .button:hover {
-  background-color: #a85adb;
+  background-color: #9653c2;
+  opacity: 0.6;
   color: #fff !important;
 }
 
@@ -1846,11 +1883,11 @@ button.alt:active,
   background-color: #3f3f3f;
 }
 
-.add-to-cart{
-    margin: 0 auto;
-    top: -20px !important;
-  }
-
+.add-to-cart {
+  margin: 0 auto;
+  width: 100%;
+  padding: 0.75em 1em 0.75em 1em;
+}
 
 /* List */
 
@@ -1939,60 +1976,16 @@ ul.social li a.fa-facebook-f {
   background-color: #3c5a98;
 }
 
-ul.social li a.fa-dribbble {
-  background-color: #c4376b;
-}
-
 ul.social li a.fa-linkedin-in {
   background-color: #006599;
 }
 
-ul.social li a.fa-tumblr {
+ul.social li a.fa-file-code {
   background-color: #51718a;
 }
 
-ul.social li a.fa-google-plus {
-  background-color: #da2713;
-}
-
-ul.social li a.fa-github {
-  background-color: #fafafa;
-}
-
-ul.social li a.fa-rss {
+ul.social li a.fa-sitemap {
   background-color: #f2600b;
-}
-
-ul.social li a.fa-instagram {
-  background-color: #e0d7c8;
-}
-
-ul.social li a.fa-foursquare {
-  background-color: #39a3d4;
-}
-
-ul.social li a.fa-skype {
-  background-color: #10bef1;
-}
-
-ul.social li a.fa-soundcloud {
-  background-color: #fe5419;
-}
-
-ul.social li a.fa-youtube {
-  background-color: #bf2e25;
-}
-
-ul.social li a.fa-blogger {
-  background-color: #ff6501;
-}
-
-ul.social li a.fa-flickr {
-  background-color: #0062db;
-}
-
-ul.social li a.fa-vimeo {
-  background-color: #4c8ab0;
 }
 
 ul.social li a:hover {
@@ -2022,6 +2015,10 @@ ul.actions li:first-child {
 
 /* Box */
 
+.product-item .box {
+  min-height: 100%;
+}
+
 .box {
   background: #fff;
   box-shadow: inset 0px 0px 0px 1px rgba(0, 0, 0, 0.15),
@@ -2040,11 +2037,15 @@ ul.actions li:first-child {
 }
 
 .box.style1 h3 {
-  margin-bottom: 0.5em;
+  margin: 1em 0 0.5em 0;
+  font-size: 1.2em;
+  font-weight: 600;
 }
 
 .box.style2 h3 {
-  margin: 0.5em 0;
+  margin: 1em 0 0.5em 0;
+  font-size: 1.2em;
+  font-weight: 600;
 }
 
 .box.style2 .image {
@@ -2053,6 +2054,24 @@ ul.actions li:first-child {
   top: 2em;
   margin: -4em 0 4em -4em;
   width: auto;
+}
+
+.box.style2 .price {
+  font-weight: 600;
+  font-size: 1.2em;
+  margin-bottom: 0.5em;
+}
+
+.box.style2 .collection {
+  margin-bottom: 1em;
+}
+
+.box.style2 .collection span {
+  text-transform: capitalize;
+  background: #eee;
+  padding: 0.2em 0.5em;
+  border: 1px solid #bdbdbd;
+  border-radius: 5px;
 }
 
 /* Icons */
@@ -2231,6 +2250,26 @@ ul.actions li:first-child {
   border-top: solid 0.6em #282828;
 }
 
+#lblCartCount {
+    font-size: 12px;
+    background: #9653c2;
+    color: #fff;
+    padding: 0 5px;
+    vertical-align: top;
+    margin-left: -10px;
+}
+.badge {
+  padding-left: 9px;
+  padding-right: 9px;
+  -webkit-border-radius: 9px;
+  -moz-border-radius: 9px;
+  border-radius: 9px;
+}
+.label-warning[href],
+.badge-warning[href] {
+  background-color: #c67605;
+}
+
 /* Articles */
 
 body > article {
@@ -2375,8 +2414,6 @@ body > article {
   width: 100%;
   text-align: right;
 }
-
-
 
 /* Large */
 
@@ -2527,8 +2564,6 @@ body > article {
     letter-spacing: 0;
   }
 
-
-
   /* Social */
 
   ul.social {
@@ -2668,7 +2703,6 @@ body > article {
   font-size: 1.3em;
   text-align: justify;
 }
-
 
 /* Media Queries */
 
